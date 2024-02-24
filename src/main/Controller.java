@@ -1,20 +1,15 @@
-package sample;
+package main;
 
 //https://docs.oracle.com/javase/8/javafx/user-interface-tutorial/line-chart.htm#CIHGBCFI
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.chart.Axis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
-import javafx.scene.text.Text;
 import javafx.scene.control.Button;
-
-import javax.sound.sampled.Line;
-import javax.tools.Tool;
 
 import static java.lang.Double.parseDouble;
 
