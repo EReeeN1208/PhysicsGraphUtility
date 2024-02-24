@@ -1,8 +1,8 @@
-package tests;
+package main;
 
 import java.text.DecimalFormat;
 
-public class Test {
+public class advanced_1d {
     public static void main(String[] args) {
 
         DecimalFormat df = new DecimalFormat( "#,###,###,000.0000" );

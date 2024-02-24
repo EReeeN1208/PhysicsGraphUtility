@@ -5,7 +5,7 @@ import java.text.DecimalFormat;
 public class basic_1d {
     public static void main(String[] args) {
 
-        DecimalFormat df = new DecimalFormat( "#,###,###,000.00" );
+        DecimalFormat df = new DecimalFormat( "#,###,###,000.0000" );
         df.setPositivePrefix("+");
 
         double gravity = 9.81;
@@ -26,6 +26,6 @@ public class basic_1d {
             vel_y += acc_y * d_time; // use old acc_y to calculate new vel_y
             time += d_time; // increment time by d_time
         }
-        System.out.println("Final time: " + df.format(time));
+        System.out.println("Final Time: " + df.format(time) + " - Final Height: " + df.format(pos_y) + " - Final Velocity y: " + df.format(vel_y)); // log final output
     }
 }
