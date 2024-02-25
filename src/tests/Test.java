@@ -8,6 +8,13 @@ public class Test {
         DecimalFormat df = new DecimalFormat( "#,###,###,000.0000" );
         df.setPositivePrefix("+");
 
+        //Tennis ball - Move this into its own object later
+        double air_d = 1.225;
+        double radius = 0.0335;
+        double cross_section = radius * radius * Math.PI;
+        double mass = 0.058;
+        // ===
+
         double gravity = 9.81;
 
         double pos_y = 10;
