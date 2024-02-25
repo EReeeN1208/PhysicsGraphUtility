@@ -6,6 +6,7 @@ public class Test {
     public static void main(String[] args) {
 
         //ALL UNITS ARE SI UNITS (Meter, Second, KG, etc...)
+        //Downwards is the negative direction
 
         DecimalFormat df = new DecimalFormat( "#,###,###,000.0000" );
         df.setPositivePrefix("+");
@@ -26,8 +27,8 @@ public class Test {
 
         double acc_y = 0; //Initial acceleration
 
-        double pos_y = 20; //Initial position
-        double vel_y = 15; //Initial velocity
+        double pos_y = 500; //Initial position
+        double vel_y = 0; //Initial velocity
         double acc_air_res_y = (constant * vel_y * vel_y) / (2 * mass);
 
         double time = 0;
@@ -38,7 +39,9 @@ public class Test {
         double acc_y_mid;
         double acc_air_res_y_mid;
 
-
+        System.out.println("Initial:");
+        System.out.println("Constant: " + df.format(constant));
+        System.out.println("Simulation:");
         while (pos_y > 0) {
 
             //The purpose of this if-else statement is to determine weather drag is affecting the object in the positive or negative direction.
