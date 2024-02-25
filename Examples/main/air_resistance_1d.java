@@ -1,8 +1,8 @@
-package tests;
+package main;
 
 import java.text.DecimalFormat;
 
-public class Test {
+public class air_resistance_1d {
     public static void main(String[] args) {
 
         //ALL UNITS ARE SI UNITS (Meter, Second, KG, etc...)
