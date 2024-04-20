@@ -1,5 +1,9 @@
 .ConfigTilePane {
+    -fx-padding: 10;
+}
 
+.ConfigPane {
+    -fx-padding: 10;
 }
 
 .ConfigName {
