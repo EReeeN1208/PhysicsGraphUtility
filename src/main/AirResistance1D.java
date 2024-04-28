@@ -11,11 +11,12 @@ public class AirResistance1D extends Simulation {
     //Downwards is the negative direction
 
     DecimalFormat df = new DecimalFormat( "#,###,###,000.0000" );
+    DecimalFormat df_precise = new DecimalFormat( "#,###,###,000.0000000" );
 
     //Tennis ball - Move this into its own object later
     double radius = 0.0335;
     double cross_section_area = radius * radius * Math.PI;
-    double drag_coefficient = 0.50;
+    double drag_coefficient = 0.53;
     double air_density = 1.225;
     double mass = 0.058;
 
@@ -72,7 +73,7 @@ public class AirResistance1D extends Simulation {
 
 
         System.out.println("Initial:");
-        System.out.println("Constant: " + df.format(constant));
+        System.out.println("Constant: " + df_precise.format(constant));
         System.out.println("Simulation:");
 
         for(double X = Start - 0.0000001; X < End + 0.0000001; X += Step) {

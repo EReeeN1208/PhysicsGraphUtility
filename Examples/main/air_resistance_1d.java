@@ -14,7 +14,7 @@ public class air_resistance_1d {
         //Tennis ball - Move this into its own object later
         double radius = 0.0335;
         double cross_section_area = radius * radius * Math.PI;
-        double drag_coefficient = 0.50;
+        double drag_coefficient = 0.53;
         double air_density = 1.225;
         double mass = 0.058;
 
