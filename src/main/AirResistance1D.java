@@ -87,7 +87,7 @@ public class AirResistance1D extends Simulation {
             }
             acc_y = acc_g + acc_air_res_y;
 
-            System.out.println("Time: " + df.format(time) + " || Height: " + df.format(pos_y) + " | Vel y: " + df_precise.format(vel_y) + " | Acc Net y: " + df_precise.format(acc_y) + " | Acc Drag y: " + df.format(acc_air_res_y) ); // log output
+            System.out.println("Time: " + df.format(time) + " || Height: " + df_precise.format(pos_y) + " | Vel y: " + df_precise.format(vel_y) + " | Acc Net y: " + df_precise.format(acc_y) + " | Acc Drag y: " + df.format(acc_air_res_y) ); // log output
 
 
             XYChart.Data Height_Data = new XYChart.Data(X, pos_y);
@@ -130,7 +130,7 @@ public class AirResistance1D extends Simulation {
         acc_y = acc_g + acc_air_res_y;
 
         System.out.println("Final:");
-        System.out.println("Time: " + df.format(time) + " || Height: " + df.format(pos_y) + " | Vel y: " + df_precise.format(vel_y) + " | Acc Net y: " + df_precise.format(acc_y) + " | Acc Drag y: " + df.format(acc_air_res_y) ); // log output
+        System.out.println("Time: " + df.format(time) + " || Height: " + df_precise.format(pos_y) + " | Vel y: " + df_precise.format(vel_y) + " | Acc Net y: " + df_precise.format(acc_y) + " | Acc Drag y: " + df.format(acc_air_res_y) ); // log output
 
 
         return SeriesArray;
