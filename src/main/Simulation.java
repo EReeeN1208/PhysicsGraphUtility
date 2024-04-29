@@ -10,7 +10,8 @@ public abstract class Simulation {
     DecimalFormat df_precise = new DecimalFormat( "#,###,###,000.0000000" );
 
     public Simulation() {
-
+        df.setPositivePrefix("+");
+        df_precise.setPositivePrefix("+");
     }
 
     abstract XYChart.Series[] Calculate(double Start, double End, double Step);

@@ -39,12 +39,6 @@ public class AirResistance1D extends Simulation {
     double acc_y_mid;
     double acc_air_res_y_mid;
 
-    public AirResistance1D() {
-
-        df.setPositivePrefix("+");
-    }
-
-
 
     @Override
     XYChart.Series[] Calculate(double Start, double End, double Step) {
