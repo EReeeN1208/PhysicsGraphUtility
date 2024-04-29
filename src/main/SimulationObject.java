@@ -26,4 +26,9 @@ public class SimulationObject {
         this.drag_coefficient = drag_coefficient;
         this.mass = mass;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

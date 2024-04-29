@@ -12,13 +12,17 @@ public class AirResistance1D extends Simulation {
     //ALL UNITS ARE SI UNITS (Meter, Second, KG, etc...)
     //Downwards is the negative direction
 
+    public AirResistance1D(Environment environment, SimulationObject simulationObject, double a, double h, double v) {
+        super(environment, simulationObject, a, h, v);
+    }
+
     double mass = simulationObject.mass;
 
     double acc_g = environment.gravity;
     double acc_y = 0; //Initial acceleration
 
-    double pos_y = 500; //Initial position
-    double vel_y = 0; //Initial velocity
+    double pos_y = h; //Initial position
+    double vel_y = v; //Initial velocity
     double acc_air_res_y = (constant * vel_y * vel_y) / (2 * mass);
 
     double time = 0;
@@ -29,9 +33,7 @@ public class AirResistance1D extends Simulation {
     double acc_y_mid;
     double acc_air_res_y_mid;
 
-    public AirResistance1D(Environment environment, SimulationObject simulationObject) {
-        super(environment, simulationObject);
-    }
+
 
 
     @Override
@@ -47,9 +49,9 @@ public class AirResistance1D extends Simulation {
         Series.setName("Data points");
 
 
-        XYChart.Series[] SeriesArray = new XYChart.Series[4];
+        XYChart.Series[] SeriesArray = new XYChart.Series[5];
 
-        for(int i = 0; i < 4; i++) {
+        for(int i = 0; i < 5; i++) {
             SeriesArray[i] = new XYChart.Series();
         }
 
@@ -57,6 +59,7 @@ public class AirResistance1D extends Simulation {
         SeriesArray[1].setName("Vel Y");
         SeriesArray[2].setName("Acc Net Y");
         SeriesArray[3].setName("Acc Drag Y");
+        SeriesArray[4].setName("Acc g");
 
 
         System.out.println("Initial:");
@@ -73,7 +76,7 @@ public class AirResistance1D extends Simulation {
             else {//The object is moving upwards so F of air resistance acts downwards
                 acc_air_res_y = -1 * (constant * vel_y * vel_y) / (2 * mass);
             }
-            acc_y = acc_g + acc_air_res_y;
+            acc_y = a + acc_g + acc_air_res_y;
 
             System.out.println("Time: " + df.format(time) + " || Height: " + df_precise.format(pos_y) + " | Vel y: " + df_precise.format(vel_y) + " | Acc Net y: " + df_precise.format(acc_y) + " | Acc Drag y: " + df.format(acc_air_res_y) ); // log output
 
@@ -90,6 +93,9 @@ public class AirResistance1D extends Simulation {
             XYChart.Data Acc_Drag_Y_Data = new XYChart.Data(X, acc_air_res_y);
             SeriesArray[3].getData().add(Acc_Drag_Y_Data);
 
+            XYChart.Data Acc_g_Data = new XYChart.Data(X, acc_g);
+            SeriesArray[4].getData().add(Acc_g_Data);
+
 
             //Velocities at the middle of the tick
             pos_y_mid = pos_y + (vel_y * 0.5 * d_time);
@@ -101,7 +107,7 @@ public class AirResistance1D extends Simulation {
             else {//The object is moving upwards so F of air resistance acts downwards
                 acc_air_res_y_mid = -1 * (constant * vel_y_mid * vel_y_mid) / (2 * mass);
             }
-            acc_y_mid = acc_g + acc_air_res_y_mid;
+            acc_y_mid = a + acc_g + acc_air_res_y_mid;
 
             pos_y += vel_y_mid * d_time; //Use vel_y_mid to calculate new pos_y
             vel_y += acc_y_mid * d_time; //Use acc_y_mid to calculate new vel_y
@@ -115,7 +121,7 @@ public class AirResistance1D extends Simulation {
         else {//The object is moving upwards so F of air resistance acts downwards
             acc_air_res_y = -1 * (constant * vel_y * vel_y) / (2 * mass);
         }
-        acc_y = acc_g + acc_air_res_y;
+        acc_y = a + acc_g + acc_air_res_y;
 
         System.out.println("Final:");
         System.out.println("Time: " + df.format(time) + " || Height: " + df_precise.format(pos_y) + " | Vel y: " + df_precise.format(vel_y) + " | Acc Net y: " + df_precise.format(acc_y) + " | Acc Drag y: " + df.format(acc_air_res_y) ); // log output

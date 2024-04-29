@@ -31,4 +31,9 @@ public class Environment {
             throw new ExceptionInInitializerError("No Such Preset. Available presets: 'Earth', 'Mars'");
         }
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

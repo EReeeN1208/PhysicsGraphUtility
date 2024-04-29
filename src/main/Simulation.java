@@ -14,12 +14,20 @@ public abstract class Simulation {
     public Environment environment;
     public SimulationObject simulationObject;
 
-    public Simulation(Environment environment, SimulationObject simulationObject) {
+    double a;
+    double h;
+    double v;
+
+    public Simulation(Environment environment, SimulationObject simulationObject, double a, double h, double v) {
         df.setPositivePrefix("+");
         df_precise.setPositivePrefix("+");
 
         this.environment = environment;
         this.simulationObject = simulationObject;
+
+        this.a = a;
+        this.h = h;
+        this.v = v;
 
         constant = simulationObject.cross_section_area * simulationObject.drag_coefficient * environment.air_density;
     }
