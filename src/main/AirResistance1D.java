@@ -7,24 +7,14 @@ import java.text.DecimalFormat;
 
 public class AirResistance1D extends Simulation {
 
+    //Simulation variables
+
     //ALL UNITS ARE SI UNITS (Meter, Second, KG, etc...)
     //Downwards is the negative direction
 
+    double mass = simulationObject.mass;
 
-    //Tennis ball - Move this into its own object later
-    double radius = 0.0335;
-    double cross_section_area = radius * radius * Math.PI;
-    double drag_coefficient = 0.53;
-    double air_density = 1.225;
-    double mass = 0.058;
-
-    double constant = cross_section_area * drag_coefficient * air_density; //Compress into constant for more concise code
-    // ===
-
-    double gravity = 9.81;
-    double acc_g = -gravity;
-
-
+    double acc_g = environment.gravity;
     double acc_y = 0; //Initial acceleration
 
     double pos_y = 500; //Initial position
@@ -38,6 +28,10 @@ public class AirResistance1D extends Simulation {
     double vel_y_mid;
     double acc_y_mid;
     double acc_air_res_y_mid;
+
+    public AirResistance1D(Environment environment, SimulationObject simulationObject) {
+        super(environment, simulationObject);
+    }
 
 
     @Override

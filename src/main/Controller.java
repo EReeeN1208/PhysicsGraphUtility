@@ -43,6 +43,12 @@ public class Controller {
 
         Quadratic QuadraticObject;
 
+        Environment Earth = new Environment("Earth");
+        Environment Mars = new Environment("Mars");
+
+        SimulationObject Tennis_Ball = new SimulationObject("Tennis Ball", 0.0335, 0.53, 0.058);
+        SimulationObject Soccer_Ball = new SimulationObject("Soccer Ball", 0.1143, 0.25, 0.428);
+
         try {
             A = parseDouble(InputA.getText());
             B = parseDouble(InputB.getText());
@@ -58,7 +64,8 @@ public class Controller {
             System.out.println(e);
         }
 
-        AirResistance1D DragSimulation = new AirResistance1D();
+
+        AirResistance1D DragSimulation = new AirResistance1D(Earth, Tennis_Ball);
 
         LineChart.getData().clear();
 
@@ -69,43 +76,5 @@ public class Controller {
         for(XYChart.Series i: SeriesArray) {
             LineChart.getData().add(i);
         }
-
-        //LineChart.getData().add(SeriesArray[1]);
-
-
-            /* Legacy Code (Commented out for reference)
-            QuadraticObject = new Quadratic(A, B, C);
-
-            System.out.println(QuadraticObject);
-
-            LineChart.getData().clear();
-            XYChart.Series Series = new XYChart.Series();
-            Series.setName("Data points");
-
-            for(double X = Start - 0.0000001; X < End + 0.0000001; X += Step) {
-                int Index = Series.getData().size();
-
-                double Y = QuadraticObject.getY(X);
-                System.out.println("Graphing point X: " + X + " Y: " + Y + ", Point number: " + Index);
-
-                XYChart.Data Data= new XYChart.Data(X, Y);
-
-                Tooltip NodeTooltip = new Tooltip();
-                NodeTooltip.setText("X: " + X + " Y: " + Y);
-
-                Tooltip.install(Data.getNode(), NodeTooltip);
-
-                Series.getData().add(Data);
-            }
-
-            LineChart.setCreateSymbols(false);
-            LineChart.getData().add(Series);
-             */
-
-
-
-
     }
-
-
 }
