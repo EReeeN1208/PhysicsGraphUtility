@@ -195,7 +195,7 @@
                                                 <Insets />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField fx:id="InputEnd" prefHeight="27.0" prefWidth="50.0" promptText="25" text="25">
+                                          <TextField fx:id="InputEnd" prefHeight="27.0" prefWidth="50.0" promptText="25" text="0">
                                              <HBox.margin>
                                                 <Insets />
                                              </HBox.margin>
@@ -215,7 +215,7 @@
                                                       <Insets />
                                                    </HBox.margin>
                                                 </Label>
-                                                <TextField fx:id="InputStep" prefHeight="27.0" prefWidth="50.0" promptText="0.2" text="0.2">
+                                                <TextField fx:id="InputStep" prefHeight="27.0" prefWidth="50.0" promptText="0.2" text="0">
                                                    <HBox.margin>
                                                       <Insets />
                                                    </HBox.margin>
