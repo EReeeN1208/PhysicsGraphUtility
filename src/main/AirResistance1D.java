@@ -10,8 +10,6 @@ public class AirResistance1D extends Simulation {
     //ALL UNITS ARE SI UNITS (Meter, Second, KG, etc...)
     //Downwards is the negative direction
 
-    DecimalFormat df = new DecimalFormat( "#,###,###,000.0000" );
-    DecimalFormat df_precise = new DecimalFormat( "#,###,###,000.0000000" );
 
     //Tennis ball - Move this into its own object later
     double radius = 0.0335;
@@ -34,7 +32,7 @@ public class AirResistance1D extends Simulation {
     double acc_air_res_y = (constant * vel_y * vel_y) / (2 * mass);
 
     double time = 0;
-    double d_time = 0.01;
+    double d_time;
 
     double pos_y_mid;
     double vel_y_mid;
@@ -51,6 +49,7 @@ public class AirResistance1D extends Simulation {
     @Override
     XYChart.Series[] Calculate(double Start, double End, double Step) {
 
+        d_time = Step;
 
         if (Start < 0) {
             Start = 0;
@@ -88,7 +87,7 @@ public class AirResistance1D extends Simulation {
             }
             acc_y = acc_g + acc_air_res_y;
 
-            System.out.println("Time: " + df.format(time) + " || Height: " + df.format(pos_y) + " | Vel y: " + df.format(vel_y) + " | Acc Net y: " + df.format(acc_y) + " | Acc Drag y: " + df.format(acc_air_res_y) ); // log output
+            System.out.println("Time: " + df.format(time) + " || Height: " + df.format(pos_y) + " | Vel y: " + df_precise.format(vel_y) + " | Acc Net y: " + df_precise.format(acc_y) + " | Acc Drag y: " + df.format(acc_air_res_y) ); // log output
 
 
             XYChart.Data Height_Data = new XYChart.Data(X, pos_y);
@@ -131,7 +130,7 @@ public class AirResistance1D extends Simulation {
         acc_y = acc_g + acc_air_res_y;
 
         System.out.println("Final:");
-        System.out.println("Time: " + df.format(time) + " || Height: " + df.format(pos_y) + " | Vel y: " + df.format(vel_y) + " | Acc Net y: " + df.format(acc_y) + " | Acc Drag y: " + df.format(acc_air_res_y) ); // log output
+        System.out.println("Time: " + df.format(time) + " || Height: " + df.format(pos_y) + " | Vel y: " + df_precise.format(vel_y) + " | Acc Net y: " + df_precise.format(acc_y) + " | Acc Drag y: " + df.format(acc_air_res_y) ); // log output
 
 
         return SeriesArray;
